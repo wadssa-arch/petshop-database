@@ -161,6 +161,10 @@ petshop.db — Banco de dados SQLite
 
 petshop.sql — Script completo com as tabelas e inserts
 
+## 📐 Diagrama do Banco de Dados  
+Veja o diagrama das tabelas e relacionamentos em `docs/diagrama_petshop.png`
+
+
 README.md — Documentação do projeto
 
 👩‍💻 Autora
