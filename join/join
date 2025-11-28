@@ -36,11 +36,32 @@ FROM Pet;
 
 -----deletar----
 
+-- DELETE 1: Excluir a aplicação de medicamento de uma consulta (tabela N:N, essencial para integridade)
+DELETE FROM Medicamento_Aplicado
+WHERE id_consulta = 301 AND id_medicamento = 201;
+
+-- DELETE 2: Excluir a consulta (Só é possível após remover referências em Medicamento_Aplicado)
+DELETE FROM Consulta
+WHERE id_consulta = 301;
+
+-- DELETE 3: Excluir um Pet (Só é possível após remover referências em Consulta)
 DELETE FROM Pet
-WHERE id = 2;
+WHERE id_pet = 1;
 
 
 ----update---
-UPDATE cliente
-SET nome = maria
-WHERE id = 1;
+
+-- UPDATE 1: Corrigir nome de cliente
+UPDATE "Tabela Cliente"
+SET nome = 'Maria Wylkemberg' -- String precisa de aspas simples
+WHERE id_cliente = 1;
+
+-- UPDATE 2: Corrigir quantidade de estoque de um medicamento
+UPDATE Medicamento
+SET quantidade = 100 -- Define nova quantidade
+WHERE id_medicamento = 202;
+
+-- UPDATE 3: Corrigir telefone de um veterinário
+UPDATE Veterinario
+SET telefone = '21980000000'
+WHERE id_veterinario = 102;
