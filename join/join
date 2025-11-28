@@ -1,0 +1,46 @@
+------Consulta + Pet + Veterinario-----
+
+select
+    c.id_consulta,
+    c.data AS Data_consulta,
+    p.nome AS nome_animal,
+    p.especie,
+    p.idade,
+    cli.nome AS nome_cliente,
+    cli.telefone AS telefone_cliente,
+    v.nome AS nome_veterinario
+    
+FROM consulta c    ---tabela principapl--
+JOIN Pet p
+    ON p.id_pet = c.id_pet  -- tabela join com consulta + PET
+JOIN cliente cli
+    ON cli.id_cliente = p.id_cliente  ---aqui join pet + cliente
+JOIN veterinario v
+    ON v.id_veterinario = c.id_veterinario;
+    
+--- Filtrar Apenas Especie--
+select 
+    p.nome AS nome_animal,
+    p.especie,
+    c.data AS data_consulta
+FROM consulta c 
+JOIN pet p
+    ON p.id_pet = c.id_pet
+WHERE p.especie ='cachorro';
+
+-- UPPER ficou maiusculo e LOWER fica minusculo--
+select
+UPPER (nome) AS nome_animal,
+LOWER (especie) AS especie_animal
+FROM Pet;
+
+-----deletar----
+
+DELETE FROM Pet
+WHERE id = 2;
+
+
+----update---
+UPDATE cliente
+SET nome = maria
+WHERE id = 1;
